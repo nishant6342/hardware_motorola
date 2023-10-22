@@ -1,5 +1,3 @@
-BOARD_SEPOLICY_DIRS += hardware/google/pixel-sepolicy/power-libperfmgr
-
 # sendhint utility
 PRODUCT_PACKAGES += \
     sendhint
@@ -12,3 +10,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     debug.sf.enable_adpf_cpu_hint=true \
     debug.hwui.use_hint_manager=true
+
+PRODUCT_SOONG_NAMESPACES += \
+    hardware/motorola/power-libperfmgr
