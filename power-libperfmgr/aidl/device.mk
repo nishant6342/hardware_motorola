@@ -12,4 +12,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     debug.hwui.use_hint_manager=true
 
 PRODUCT_SOONG_NAMESPACES += \
-    hardware/motorola/power-libperfmgr
+    hardware/motorola/power-libperfmgr \
+    hardware/google/interfaces \
+    hardware/google/pixel
