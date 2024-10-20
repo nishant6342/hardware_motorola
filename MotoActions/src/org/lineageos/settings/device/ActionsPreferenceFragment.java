@@ -18,14 +18,26 @@
 package org.lineageos.settings.device;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.view.MenuItem;
 
-import androidx.preference.PreferenceCategory;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
 import androidx.preference.PreferenceFragment;
 
 public class ActionsPreferenceFragment extends PreferenceFragment {
 
-    private static final String KEY_ACTIONS_CATEGORY = "actions_key";
+    private static final String TAG = "ActionsPreferenceFragment";
+    private static final String GESTURE_CHOP_CHOP_KEY = "gesture_chop_chop";
+    private static final String GESTURE_IR_SILENCER_KEY = "gesture_ir_silencer";
+    private static final String GESTURE_FLIP_TO_MUTE_KEY = "gesture_flip_to_mute";
+    private static final String GESTURE_LIFT_TO_SILENCE_KEY = "gesture_lift_to_silence";
+
+    private Preference mChopChop;
+    private Preference mIrSilencer;
+    private Preference mFlipMute;
+    private Preference mLiftSilence;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -40,4 +52,24 @@ public class ActionsPreferenceFragment extends PreferenceFragment {
         }
         return false;
     }
+    
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        mChopChop = findPreference(GESTURE_CHOP_CHOP_KEY);
+        mIrSilencer = findPreference(GESTURE_IR_SILENCER_KEY);
+        mFlipMute = findPreference(GESTURE_FLIP_TO_MUTE_KEY);
+        mLiftSilence = findPreference(GESTURE_LIFT_TO_SILENCE_KEY);
+
+        if (mChopChop == null || mIrSilencer == null || mFlipMute == null || mLiftSilence == null) {
+            Log.e(TAG, "Failed to apply layout pref is null!");
+            return;
+        }
+        mChopChop.setLayoutResource(org.elixir.resources.cardlayout.R.layout.xd_pref_card_top);
+        mIrSilencer.setLayoutResource(org.elixir.resources.cardlayout.R.layout.xd_pref_card_mid);
+        mFlipMute.setLayoutResource(org.elixir.resources.cardlayout.R.layout.xd_pref_card_mid);
+        mLiftSilence.setLayoutResource(org.elixir.resources.cardlayout.R.layout.xd_pref_card_bot);
+
+    }
+
 }
