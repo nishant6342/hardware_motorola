@@ -1,0 +1,11 @@
+//
+// Copyright (C) 2025 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+install_symlink {
+    name: "vendor_fsg_mountpoint",
+    vendor: true,
+    installed_location: "fsg/.keep",
+    symlink_target: "/dev/null",
+}
