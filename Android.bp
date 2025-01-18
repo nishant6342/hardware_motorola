@@ -3,9 +3,8 @@
 // SPDX-License-Identifier: Apache-2.0
 //
 
-install_symlink {
+mkdir {
     name: "vendor_fsg_mountpoint",
+    dir: "fsg"
     vendor: true,
-    installed_location: "fsg/.keep",
-    symlink_target: "/dev/null",
 }
