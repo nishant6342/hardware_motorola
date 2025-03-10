@@ -5,6 +5,6 @@
 
 mkdir {
     name: "vendor_fsg_mountpoint",
-    dir: "fsg"
+    dir: "fsg",
     vendor: true,
 }
